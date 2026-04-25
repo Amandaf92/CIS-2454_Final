@@ -1,0 +1,8 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+    background-color: #f8f9fa;
+}

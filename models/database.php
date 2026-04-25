@@ -1,16 +1,25 @@
-
 <?php
+class Database {
+    private $host = "localhost";
+    private $db_name = "shopping_list_app";
+    private $username = "root";
+    private $password = "";
+    public $conn;
 
-// database server type, location, database name
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "shopping_list_app";
+    public function connect() {
+        $this->conn = null;
 
-$conn = new mysqli($host, $user, $password, $database);
+        try {
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";dbname=" . $this->db_name,
+                $this->username,
+                $this->password
+            );
+            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch(PDOException $e) {
+            echo "Connection Error: " . $e->getMessage();
+        }
 
-if (!$conn) {
-    die("Database connection failed: ");
+        return $this->conn;
+    }
 }
-
-// Copied from the Stock example, changed username and database name
