@@ -2,30 +2,31 @@ body {
     font-family: 'Ubuntu', sans-serif;
     background-color: #f4f6f8;
     margin: 10px;
-    color: #333;
-    border-style: solid;
-    border-width: 5px;
     text-align: center;
-
-    padding: 25px;
 }
 
 .shoppingContainer {
     width: 700px;
-    margin: 40px auto;
+    margin: 15px auto;
+    align-items: center;
     background-color: #ccc;
-    padding: 25px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(155, 0, 255, 0.1);
+
+    border-style: solid 5px gray;
 }
 
 .storeList {
     list-style: none;
+    width: 90%;
+    align-items: center;
     padding: 0px;
-    margin: 0px;
+    margin: auto;
 }
+
 .addStore {
     list-style: none;
+    align-items: center;    
     padding: 0px;
     margin: 0px;
 }
@@ -34,12 +35,14 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 90%;
     padding: 12px;
     border-bottom: 1px solid #ddd;
 }
 
 .itemContainer {
     list-style: none;
+    align-items: center;
     padding: 0px;
     margin: 0px;
 }
@@ -57,6 +60,11 @@ body {
 
 .addButton {
     background-color: #04AA6D;
+}
+
+.buttonsRight {
+    display: flex;
+    gap: 8px;
 }
 
 form {

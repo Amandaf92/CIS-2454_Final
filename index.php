@@ -137,9 +137,9 @@ function App() {
                 ))}
             </ul>
             
-            {selectedStore && (
+            {selectedStore && ( // List the Items associated with a Selected Store
                 <div className="itemContainer">
-                    <h4>{selectedStore.name} Items</h4>
+                    <h3>{selectedStore.name} Items</h3>
                     <div>
                         <input type="text" value={newItem} onChange={e => setNewItem(e.target.value)} placeholder="New Item"/>
                         <button className="button addButton" onClick={addItem}> Add </button>
@@ -157,12 +157,12 @@ function App() {
                                     </div>
                                 ) : (
                                     <div className="storeRows">
-                                        <span
-                                            style={{ textDecoration: item.checked ? "line-through" : "none", cursor: "pointer"}}
-                                            onClick={() => toggleItem(item)}>
+                                        <span 
+                                            onClick={() => toggleItem(item)} style={{ cursor: "pointer"}}>
+                                            <input type="checkbox" checked={item.checked} readOnly style={{ marginRight: "8px"}} />
                                             {item.name}     (x{item.quantity})
                                         </span>
-                                        <div>
+                                        <div className="buttonsRight">
                                             <button className="button editButton" onClick={() => startEdit(item)}> Edit </button>
                                             <button className="button deleteButton" onClick={() => deleteItem(item.id)}> Delete </button>
                                         </div>
