@@ -82,7 +82,7 @@ function App() {
             method: "PUT",
             body: JSON.stringify({
                 id: item.id,
-                checked: item.checked ? 0 : 1,
+                checked: Number(item.checked) === 1 ? 0 : 1;
                 name: item.name,
                 quantity: item.quantity
             })
@@ -158,9 +158,19 @@ function App() {
                                 ) : (
                                     <div className="storeRows">
                                         <span 
-                                            onClick={() => toggleItem(item)} style={{ cursor: "pointer"}}>
-                                            <input type="checkbox" checked={item.checked} readOnly style={{ marginRight: "8px"}} />
-                                            {item.name}     (x{item.quantity})
+                                            onClick={() => toggleItem(item)} 
+                                            style={{ 
+                                                cursor: "pointer",
+                                                textDecoration: Number(item.checked) === 1 ? "line-through" : "none"
+                                            }}
+                                        >
+                                            <input
+                                                type="checkbox"
+                                                checked={Number(item.checked) === 1}
+                                                readOnly
+                                                style={{ marginRight: "8px" }}
+                                            />
+                                            {item.name} (x{item.quantity})
                                         </span>
                                         <div className="buttonsRight">
                                             <button className="button editButton" onClick={() => startEdit(item)}> Edit </button>
