@@ -26,11 +26,13 @@ function App() {
     const [editName, setEditName] = useState("");
     const [editQty, setEditQty] = useState(1);
 
+    // Fetch Stores from database
     const fetchStores = async () => {
         const res = await fetch("api/stores.php");
         setStores(await res.json());
     };
 
+    // Fetch Items with associated Stores from database
     const fetchItems = async (storeId) => {
         const res = await fetch(`api/items.php?store_id=${storeId}`);
         setItems(await res.json());
@@ -38,6 +40,7 @@ function App() {
 
     useEffect(() => { fetchStores(); }, []);
 
+    // Post request for adding new Stores to database
     const addStore = async () => {
         if (!newStore.trim()) return;
 
@@ -50,12 +53,14 @@ function App() {
         fetchStores();
     };
 
+    // Delete request for removing Stores and associated Items from the database
     const deleteStore = async (id) => {
         await fetch(`api/stores.php?id=${id}`, { method: "DELETE" });
         setSelectedStore(null);
         fetchStores();
     };
 
+    // Post request for adding Items to a Store
     const addItem = async () => {
         if (!newItem.trim()) return;
 
@@ -72,11 +77,13 @@ function App() {
         fetchItems(selectedStore.id);
     };
 
+    // Delete request for removing Items from a selected Store
     const deleteItem = async (id) => {
         await fetch(`api/items.php?id=${id}`, { method: "DELETE" });
         fetchItems(selectedStore.id);
     };
 
+    // Toggle an Items checked status
     const toggleItem = async (item) => {
         await fetch("api/items.php", {
             method: "PUT",
@@ -90,12 +97,14 @@ function App() {
         fetchItems(selectedStore.id);
     };
 
+    // Edit request for selected Item
     const startEdit = (item) => {
         setEditingItemId(item.id);
         setEditName(item.name);
         setEditQty(item.quantity);
     };
 
+    // Save request for edited Item
     const saveEdit = async (item) => {
         await fetch("api/items.php", {
             method: "PUT",
