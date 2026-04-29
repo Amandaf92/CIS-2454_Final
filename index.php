@@ -173,6 +173,9 @@ function App() {
                     </ul>
                 </div>
             )}
+                <footer>
+                Amanda Fockler CIS-Final - &copy; - CIS-2454-Winter
+                </footer>
         </div>
     );
 }

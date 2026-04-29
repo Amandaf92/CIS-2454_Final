@@ -7,7 +7,9 @@ body {
 
 .shoppingContainer {
     width: 700px;
-    margin: 15px auto;
+    margin: 25px auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
     align-items: center;
     background-color: #ccc;
     border-radius: 10px;
@@ -27,7 +29,7 @@ body {
 .addStore {
     list-style: none;
     align-items: center;    
-    padding: 0px;
+    padding-top: 0px;
     margin: 0px;
 }
 
@@ -59,12 +61,21 @@ body {
 }
 
 .addButton {
-    background-color: #04AA6D;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: rgb(108, 89, 205);
+    color: #ccc;
 }
 
 .buttonsRight {
     display: flex;
     gap: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 40px;
 }
 
 form {
